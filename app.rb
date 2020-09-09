@@ -7,17 +7,12 @@ class App < Sinatra::Base
   end
 
   get'/new' do
-    @puppies = Puppy.all
     erb :create_puppy
   end
 
 
   post '/puppy' do
-    @puppy = Puppy.new(name, breed, age)
-    @puppy.name = params[:name]
-    @puppy.breed = params[:breed]
-    @puppy.age = params[:age]
-    @puppy.save
+    @puppy = Puppy.new(params[:name], params[:breed], params[:age]_
     erb :display_puppy
   end
 
